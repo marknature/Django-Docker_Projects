@@ -1,0 +1,5 @@
+ipython
+django-debug-toolbar
+coverage
+flake8
+black
