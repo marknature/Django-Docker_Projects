@@ -1,0 +1,47 @@
+name: 🐍 Django Docker CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: django_db
+          POSTGRES_USER: django_user
+          POSTGRES_PASSWORD: django_pass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: 🐳 Build Docker containers
+      run: |
+        docker-compose -f docker-compose.yml up -d --build
+
+    - name: 🧪 Run Django tests inside container
+      run: |
+        docker-compose exec web python manage.py test
+
+    - name: 📦 Shut down Docker
+      if: always()
+      run: docker-compose down
