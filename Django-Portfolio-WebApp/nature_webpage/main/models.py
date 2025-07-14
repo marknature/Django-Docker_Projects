@@ -40,4 +40,4 @@ class ProjectImage(models.Model):
         return f"Image for {self.project.title}"
 
     class Meta:
-        ordering = ['created_at']  # Order images by upload order
+        ordering = ['created_at']  # Order images by upload ordere
