@@ -3,12 +3,12 @@ from .models import Tag, Project, ProjectImage
 
 @admin.register(ProjectImage)
 class ProjectImageAdmin(admin.ModelAdmin):
-    list_display = ('image', 'get_caption')  # Use get_caption method
-    readonly_fields = ('image',)
+    list_display = ('image', 'get_caption', 'created_at')
+    readonly_fields = ('created_at',)
 
     def get_caption(self, obj):
-        return obj.caption
-    get_caption.short_description = 'Caption'  # Optional: Set column header
+        return obj.caption or "No caption"
+    get_caption.short_description = 'Caption'
 
 class ProjectImageInline(admin.TabularInline):
     model = ProjectImage
@@ -18,10 +18,15 @@ class ProjectImageInline(admin.TabularInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', "link", 'created_at', 'updated_at')
+    list_display = ('title', 'created_at', 'updated_at')  # Removed 'technology' field
     inlines = [ProjectImageInline]
     search_fields = ('title', 'description')
-    list_filter = ('tags',)
+    list_filter = ('tags', 'created_at')
+    filter_horizontal = ('tags',)  # Better widget for many-to-many
+    readonly_fields = ('created_at', 'updated_at')
+
+# Remove this duplicate registration line - @admin.register already handles it
+# admin.site.register(Project, ProjectAdmin) 
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
