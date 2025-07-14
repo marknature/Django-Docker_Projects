@@ -25,9 +25,6 @@ class ProjectAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)  # Better widget for many-to-many
     readonly_fields = ('created_at', 'updated_at')
 
-# Remove this duplicate registration line - @admin.register already handles it
-# admin.site.register(Project, ProjectAdmin) 
-
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
