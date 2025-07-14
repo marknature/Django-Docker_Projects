@@ -3,3 +3,10 @@ django-debug-toolbar
 coverage
 flake8
 black
+Pillow
+django-extensions
+django-environ
+docker
+docker-compose
+pytest
+pytest-django
