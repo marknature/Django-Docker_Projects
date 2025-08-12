@@ -6,7 +6,6 @@ black
 Pillow
 django-extensions
 django-environ
-docker
 docker-compose
 pytest
 pytest-django

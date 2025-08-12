@@ -12,7 +12,7 @@ class ProjectImageAdmin(admin.ModelAdmin):
 
 class ProjectImageInline(admin.TabularInline):
     model = ProjectImage
-    extra = 1
+    extra = 1 
     fields = ('image', 'caption')
 
 
