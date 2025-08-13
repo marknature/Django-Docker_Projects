@@ -2,6 +2,7 @@
 
 Welcome to my collection of Django projects and mini-projects, containerized using Docker for consistency, scalability, and ease of deployment. This repository showcases both full-stack applications and smaller utilities built as part of my learning journey and contributions to real-world problems.
 
+![Django & Docker Projects Logo 1](img-README/logo1.png)
 
 ## 📁 Repository Structure
 
@@ -69,7 +70,7 @@ docker-compose up --build
 
 Your Django app will be available at `http://localhost:8000`.
 
-<br>
+![Django & Docker Projects Logo 2](img-README/logo2.png)
 
 ## 🧪 Example Projects
 
@@ -114,7 +115,7 @@ Feel free to connect with me on:
 
 * 🌐 [LinkedIn](https://www.linkedin.com/in/marknature-c/)
 
-<br>
+![Django & Docker Projects Logo 3](img-README/logo3.png)
 
 ## 📄 License
 
