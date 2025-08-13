@@ -104,6 +104,9 @@ docker-compose up --build
 ```
 Your Django app will be available at `http://localhost:8000`.
 
+
+![Django & Docker](img-README/download.png)
+
 #### React/Next.js Projects
 ```bash
 cd react-projects/next-app-1
