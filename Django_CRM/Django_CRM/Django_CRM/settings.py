@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "website",  # Custom app for the CRM
 ]
 
 MIDDLEWARE = [
@@ -71,12 +72,16 @@ WSGI_APPLICATION = "Django_CRM.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# MySQl
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "crm_db",
+        "USER": "root",
+        "PASSWORD": "NatureBoy25%",
+        "HOST": "localhost",
+        "PORT": "3306",  # Default MySQL port
     }
 }
 
