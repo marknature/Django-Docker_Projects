@@ -58,6 +58,12 @@ full-stack-projects/
 - **Cloud Database:** [Supabase](https://supabase.com/)
 - **Database Tools:** pgAdmin, MySQL Workbench
 
+#### Database Comparison Overview
+- **MySQL**: Optimized for speed and simplicity, ideal for web applications and read-heavy workloads. Great for beginners with straightforward setup and excellent performance for simple operations.
+- **PostgreSQL**: Advanced features with strong data integrity, MVCC (Multi-Version Concurrency Control), and full SQL compliance. Perfect for complex queries, custom data types, and applications requiring strict data consistency.
+- **SQLite**: Lightweight, serverless database perfect for development, testing, and small applications.
+- **Supabase**: Modern PostgreSQL-based backend-as-a-service with real-time capabilities, authentication, and API generation.
+
 ### Dev Tools
 - **Version Control:** Git, GitHub
 - **Editors:** VS Code, IntelliJ IDEA
@@ -156,7 +162,7 @@ Your Java app will be available at `http://localhost:8080`.
 
 <br>
 
-## 🗄️ Database Configurations
+## 🗄️ Database Configurations & Use Cases
 
 ### MySQL
 ```yaml
@@ -169,6 +175,7 @@ services:
       MYSQL_USER: myapp_user
       MYSQL_PASSWORD: password123
 ```
+**Best for**: Web applications, content management systems, e-commerce platforms, read-heavy workloads
 
 ### PostgreSQL
 ```yaml
@@ -181,6 +188,15 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password123
 ```
+**Best for**: Data analytics, complex applications, financial systems, applications requiring data integrity
+
+### SQLite
+```python
+# Simple Python connection
+import sqlite3
+conn = sqlite3.connect('database.db')
+```
+**Best for**: Development, testing, mobile apps, small desktop applications
 
 ### Supabase
 ```javascript
@@ -191,6 +207,16 @@ const supabaseUrl = 'your-project-url'
 const supabaseKey = 'your-anon-key'
 const supabase = createClient(supabaseUrl, supabaseKey)
 ```
+**Best for**: Rapid prototyping, real-time applications, modern web apps, JAMstack projects
+
+### Database Selection Guide
+| Use Case | Recommended Database | Why |
+|----------|---------------------|-----|
+| Simple web app | MySQL | Fast, reliable, easy setup |
+| Complex analytics | PostgreSQL | Advanced features, data integrity |
+| Mobile/Desktop app | SQLite | Lightweight, serverless |
+| Real-time features | Supabase | Built-in real-time, easy auth |
+| Learning/Development | SQLite → MySQL → PostgreSQL | Progressive complexity |
 
 <br>
 
