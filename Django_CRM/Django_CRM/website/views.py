@@ -20,7 +20,7 @@ def home(request):
 		else:
 			messages.success(request, "There Was An Error Logging In, Please Try Again...")
 			return redirect('home')
-	else:
+	else: 
 		return render(request, 'home.html', {'records':records})
 
 
